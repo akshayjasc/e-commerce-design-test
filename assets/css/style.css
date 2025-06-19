@@ -1,0 +1,484 @@
+/* Header & Navigation */
+.site-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1050;
+    background: #fff;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 24px;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.04);
+    transition: box-shadow 0.2s;
+}
+
+.header-logo {
+    display: inline-block;
+    padding-top: 44px;
+    padding-bottom: 12px;
+}
+
+.navbar-nav {
+    gap: 40px;
+    justify-content: center;
+}
+
+.navbar .nav-link {
+    font-family: var(--font-primary);
+    font-weight: var(--font-weight-bold);
+    text-transform: uppercase;
+    padding: 0.5rem 0;
+    color: var(--color-primary);
+    font-size: var(--font-size-base);
+    transition: color 0.2s, background 0.2s;
+}
+
+.navbar .nav-link.active,
+.navbar .nav-link[aria-current="page"] {
+    color: #979797 !important;
+}
+
+.navbar .nav-link:not(.active):not([aria-current="page"]) {
+    color: var(--color-primary) !important;
+}
+
+.navbar .nav-link:hover,
+.navbar .nav-link:focus {
+    color: #bdbdbd !important;
+    background: rgba(0,0,0,0.03);
+}
+
+.header-icons {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+}
+
+/* Remove focus outline from burger menu */
+.navbar-toggler:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+/* Responsive header logo and icon alignment */
+@media (max-width: 991.98px) {
+    .navbar-nav {
+        gap: 18px;
+    }
+    .navbar .navbar-brand {
+        margin-left: auto;
+        margin-right: auto;
+        display: flex;
+        justify-content: center;
+        position: absolute;
+        left: 0; right: 0;
+        top: 0; bottom: 0;
+        z-index: 2;
+        pointer-events: none;
+    }
+    .navbar .navbar-brand img {
+        pointer-events: auto;
+    }
+    .header-icons {
+        position: absolute;
+        right: 16px;
+        top: 50%;
+        transform: translateY(-50%);
+        margin-left: 0;
+        gap: 18px;
+        z-index: 3;
+    }
+    .navbar-toggler {
+        z-index: 4;
+    }
+}
+
+/* Add shadow on scroll */
+.site-header.scrolled {
+    box-shadow: 0 2px 16px rgba(0,0,0,0.08);
+    background: #fff;
+}
+
+/* Search Popup */
+.search-popup {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0,0,0,0.36);
+    backdrop-filter: blur(34px);
+    z-index: 2000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s;
+}
+.search-popup.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+.search-popup .search-box {
+    background: #fff;
+    border-radius: 8px;
+    padding: 2rem 2.5rem;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+    min-width: 320px;
+    max-width: 90vw;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+.search-popup input[type="search"] {
+    border: none;
+    outline: none;
+    font-size: 1.25rem;
+    flex: 1;
+    background: transparent;
+}
+.search-popup .close-search {
+    background: none;
+    border: none;
+    font-size: 2rem;
+    color: var(--color-primary);
+    cursor: pointer;
+    margin-left: 1rem;
+}
+
+/* Hero Section */
+.hero-section {
+    position: relative;
+    min-height: 526px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+.hero-section picture,
+.hero-section img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+.hero-section .container {
+    position: relative;
+    z-index: 2;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+.hero-section .content-box {
+    background: rgba(0,0,0,0.36);
+    backdrop-filter: blur(34px);
+    color: #fff;
+    padding: 3.2rem 2.8rem;
+    max-width: 716px;
+    margin-left: auto;
+}
+.hero-section .content-box h1 {
+    color: #fff;
+}
+.hero-section .content-box p {
+    color: #fff;
+}
+.hero-section .btn-primary-custom {
+    background: #fff;
+    color: #0A0A0A;
+    border-radius: 0 !important;
+    border: none;
+}
+.hero-section .btn-primary-custom:hover {
+    background: #f5f5f5;
+    color: #0A0A0A;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+/* Section Titles & Subtitles */
+.section-title {
+    font-size: var(--font-size-h2);
+    font-weight: var(--font-weight-bold);
+    text-align: center;
+    margin-bottom: 0.5rem;
+    position: relative;
+}
+.section-title::after {
+    content: '';
+    display: block;
+    width: 150px;
+    height: 5px;
+    background: #C4C4C4;
+    margin: 16px auto 0 auto;
+    border-radius: 2px;
+}
+.section-subtitle {
+    color: #979797;
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto 2.5rem auto;
+    font-size: 1.125rem;
+}
+.products-section p,
+.projects-section p {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Products Grid Custom Layout */
+.products-grid {
+    display: grid;
+    grid-template-columns: 2fr 1.2fr 1.5fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 24px;
+    height: 638px;
+    grid-template-areas:
+        "wide small stack1"
+        "wide small stack2";
+}
+.products-grid .grid-item:nth-child(1) {
+    grid-area: wide;
+}
+.products-grid .grid-item:nth-child(2) {
+    grid-area: small;
+}
+.products-grid .grid-item:nth-child(3) {
+    grid-area: stack1 / stack1 / stack2 / stack2;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+.products-grid .grid-item .card,
+.products-grid .grid-item-stacked .card {
+    border: none;
+    height: 100%;
+    background: none;
+    position: relative;
+    overflow: visible;
+}
+.products-grid .card-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 0;
+}
+
+/* Card Overlay */
+.card-bottom-overlay {
+    position: absolute;
+    left: 20px;
+    right: 20px;
+    bottom: -20px;
+    background: rgb(0 0 0);
+    color: #fff;
+    padding: 1.2rem 1rem 1rem 1rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: solid 1px #fff;
+}
+.card-bottom-overlay h3,
+.card-bottom-overlay p {
+    margin: 0;
+    padding: 0;
+}
+
+/* Projects Section */
+.section-projects .section-title::after {
+    margin-top: 18px;
+}
+
+/* Footer */
+.footer {
+    background-color: var(--color-primary);
+    color: #A4A4A4;
+    padding: 4rem 0 2rem;
+}
+.footer .logo {
+    max-height: 40px;
+    margin-bottom: 2rem;
+}
+.footer h5 {
+    font-weight: var(--font-weight-bold);
+    margin-bottom: 1.5rem;
+    color: #fff;
+}
+.footer ul {
+    list-style: none;
+    padding: 0;
+}
+.footer ul li {
+    margin-bottom: 0.5rem;
+}
+.footer a {
+    color: #A4A4A4;
+    text-decoration: none;
+    transition: color 0.2s, opacity 0.3s;
+}
+.footer a:hover,
+.footer a.active {
+    color: #fff;
+}
+
+/* Footer Mobile Accordion */
+.footer .accordion {
+    --bs-accordion-bg: transparent;
+    --bs-accordion-border-color: rgba(255, 255, 255, 0.1);
+    --bs-accordion-btn-color: #A4A4A4;
+    --bs-accordion-btn-bg: transparent;
+    --bs-accordion-active-bg: transparent;
+    --bs-accordion-active-color: #fff;
+    --bs-accordion-btn-focus-border-color: rgba(255, 255, 255, 0.2);
+    --bs-accordion-btn-focus-box-shadow: 0 0 0 0.25rem rgba(255, 255, 255, 0.1);
+}
+.footer .accordion-button::after {
+    filter: invert(1);
+}
+
+/* Social Links */
+.social-links a {
+    margin-right: 1rem;
+    font-size: 1.25rem;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 991.98px) {
+    .header-logo {
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+    .products-grid {
+        display: block;
+        height: auto;
+    }
+    .products-grid .grid-item,
+    .products-grid .grid-item-stacked {
+        margin-bottom: 30px;
+    }
+    .card-bottom-overlay {
+        left: 12px;
+        right: 12px;
+        bottom: -12px;
+        padding: 14px 16px 10px 16px;
+    }
+    .hero-section picture,
+    .hero-section img {
+        height: 340px;
+    }
+}
+@media (max-width: 575.98px) {
+    .hero-section {
+        min-height: 380px;
+    }
+    .hero-section .container {
+        align-items: flex-end !important;
+        justify-content: flex-start;
+        height: 100%;
+        padding-bottom: 2.5rem;
+    }
+    .hero-section .content-box {
+        padding: 1.2rem 1rem;
+        margin: 0;
+        width: 100%;
+        max-width: 100%;
+        background: rgba(0,0,0,0.36);
+        border-radius: 0;
+    }
+    .section-title {
+        font-size: 2rem;
+    }
+    .section-title::after {
+        width: 150px;
+        height: 5px;
+    }
+    .section-subtitle {
+        font-size: 1rem;
+        max-width: 90vw;
+    }
+    .card-bottom-overlay {
+        left: 6px;
+        right: 6px;
+        bottom: -6px;
+        padding: 10px 8px 8px 8px;
+    }
+    .hero-section picture,
+    .hero-section img {
+        height: 340px;
+    }
+}
+
+/* Buttons */
+.btn,
+.btn-primary-custom {
+    border-radius: 0 !important;
+    transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+}
+.btn-primary-custom:hover,
+.btn:focus {
+    background: #222;
+    color: #fff;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+/* Projects Section */
+.projects-section .row {
+    gap: 32px 0;
+    justify-content: center;
+}
+.project-card {
+    margin-bottom: 24px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+.project-info {
+    text-align: center;
+}
+
+
+@media (min-width: 992px) {
+    .projects-swiper {
+        display: none !important;
+    }
+}
+
+/* Smooth transitions for hover effects */
+.card-bottom-overlay,
+.project-card,
+.btn,
+.btn-primary-custom {
+    transition: all 0.2s;
+}
+
+/* Section spacing and responsiveness */
+.products-section,
+.projects-section {
+    padding-top: 64px;
+    padding-bottom: 64px;
+}
+@media (max-width: 991.98px) {
+    .products-section,
+    .projects-section {
+        padding-top: 40px;
+        padding-bottom: 40px;
+    }
+    .products-grid {
+        gap: 16px;
+    }
+    .products-grid .img.card-img{
+        height: 400px;
+    }
+}
+
+.body-with-fixed-header {
+    padding-top: 156px;
+}
+
+@media (max-width: 991.98px) {
+    .body-with-fixed-header {
+        padding-top: 52px;
+    }
+
+}
